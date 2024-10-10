@@ -1,0 +1,44 @@
+
+<h1>{{product |json}}</h1>
+<form #myForm="ngForm" (ngSubmit)="addNewProduct(myForm)">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name :</label>
+      <input type="text" [class.border-danger]="nameInp.hasError('required')&&nameInp.touched" minlength="3" required #nameInp="ngModel" [(ngModel)]="product.name" name="name" class="form-control" id="name" aria-describedby="emailHelp">
+  
+      @if(nameInp.invalid&&nameInp.touched){
+        @if(nameInp.hasError('required')){
+            <p class="text-danger">Name is Required</p>
+
+        }
+        @if(nameInp.hasError('minlength')){
+            <p class="text-danger">Name is must be at least 3 characters</p>
+
+        }
+      }
+
+
+    </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Price :</label>
+        <input type="number" [(ngModel)]="product.price"  name="price"class="form-control" id="price" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <label for="quantity" class="form-label">Quantity :</label>
+        <input type="number" [(ngModel)]="product.quantity" name="quantity" class="form-control" id="quantity" aria-describedby="emailHelp">
+      </div>
+      <div class="mb-3">
+        <select class="form-select" [(ngModel)]="product.catId" name="catId" aria-label="Default select example">
+            <option selected disabled>Open this select menu</option>
+            @for(cat of categories;track cat.id){
+                <option [value]="cat.id">{{cat.name}}</option>
+
+            }
+          
+          </select>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Image :</label>
+        <input type="file" [(ngModel)]="product.imgUrl" name="imgUrl" class="form-control" id="image" aria-describedby="emailHelp">
+      </div>
+    <button type="submit" [disabled]="myForm.invalid" class="btn btn-primary">Submit</button>
+  </form>

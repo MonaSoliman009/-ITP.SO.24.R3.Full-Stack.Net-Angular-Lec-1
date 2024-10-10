@@ -1,0 +1,59 @@
+{
+    "products": [
+        {
+          "id": "1",
+          "name": "Lenvo thinpad X230",
+          "price": 100,
+          "quantity": 10,
+          "catId": 1,
+          "imgUrl": "https://picsum.photos/200"
+        },
+        {
+          "id": "2",
+          "name": "Dell",
+          "price": 200,
+          "quantity": 20,
+          "catId": 1,
+          "imgUrl": "https://picsum.photos/200"
+        },
+        {
+          "id": "3",
+          "name": "Lenovo Tab",
+          "price": 100,
+          "quantity": 10,
+          "catId": 2,
+          "imgUrl": "https://picsum.photos/200"
+        },
+        {
+          "id": "4",
+          "name": "Samsung Tab",
+          "price": 100,
+          "quantity": 10,
+          "catId": 2,
+          "imgUrl": "https://picsum.photos/200"
+        },
+        {
+          "id": "5",
+          "name": "Samsung note 10",
+          "price": 100,
+          "quantity": 10,
+          "catId": 3,
+          "imgUrl": "https://picsum.photos/200"
+        }
+
+      ],
+      "categories": [
+        {
+          "id": "1",
+          "name": "Laptops"
+        },
+        {
+          "id": "2",
+          "name": "Tablets"
+        },
+        {
+          "id": "3",
+          "name": "Mobiles"
+        }
+      ]
+}

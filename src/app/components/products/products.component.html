@@ -1,0 +1,61 @@
+<!-- <h3>{{myDate |date:'short'}}</h3> -->
+
+
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+
+  @for(prd of filteredProducts;track prd.id;let i = $index){
+  <!-- @if(prd.catId==SelectedCatId || SelectedCatId==0){ -->
+  <!-- <div class="col" (click)="goToDetails(prd.id)"> -->
+    <div class="col" [routerLink]="['/details',prd.id]">
+
+    <!-- <div class="card" [class]="myClass"> -->
+    <!-- <div class="card" [style]="myStyle" [class]="(prd.quantity==0)?'bg-danger':'bg-success'"> -->
+    <div class="card" >
+
+      <!-- <div class="card" [style.color]="(prd.quantity==0)?'white':'black'" [class.bg-danger]="prd.quantity==0"> -->
+
+      <img appCustomDirective="green" highlightColor="red" [src]="prd.imgUrl" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"> {{i+1}} {{prd.name}}</h5>
+
+        <!-- <h5 class="card-title"> {{i+1}} {{prd.name |reverse:'-'}}</h5> -->
+        <p class="card-text">price is : {{prd.price |currency:'EUR':'code'}}</p>
+
+
+        @switch(prd.quantity){
+          @case(0){
+            <p class="card-text">Quantity is : Out of stock</p>
+
+          }
+          @case(1){
+            <p class="card-text">Quantity is : Last one item</p>
+
+          }
+          @default {
+            <p class="card-text">Quantity is : {{prd.quantity}}</p>
+
+          }
+        }
+      
+
+      
+
+
+        <!-- template variable , ref -->
+        <!-- <input type="number" #countInp /> -->
+        <!-- <button class="btn btn-success" (click)="buy(countInp.value , prd.price)">Buy</button> -->
+      </div>
+    </div>
+  </div>
+  <!-- } -->
+
+
+  }@empty {
+  <h1>There is no products</h1>
+  }
+
+
+
+
+</div>

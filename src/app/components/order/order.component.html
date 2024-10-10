@@ -1,0 +1,17 @@
+<select [(ngModel)]="SelectedCatId" class="form-select mb-5" aria-label="Default select example">
+   <option value="0" selected>All</option>
+  <option *ngFor="let cat of Categories" [value]="cat.id">{{cat.name}}</option>
+  
+  </select>
+  
+
+  <!-- <div class="bg-warning"> -->
+
+    <app-products (orderPriceChanged)="changeOrderPrice($event)" [selcetedCatId]="SelectedCatId"></app-products>
+  <!-- </div> -->
+
+  
+ <h1>total Order price in parent : {{totalOrderPrice}}</h1> 
+
+ <input type="text" #userNameInp class="form-control"/>
+ <button (click)="changeValue()">Click</button>

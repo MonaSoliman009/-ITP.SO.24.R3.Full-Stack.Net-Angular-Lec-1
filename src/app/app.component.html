@@ -1,5 +1,4 @@
 <!-- <h1>Hello from app component</h1> -->
-
-<app-header></app-header>
-<app-home></app-home>
-<app-footer></app-footer>
+ <div [dir]="(lang=='en')?'ltr':'rtl'">
+    <router-outlet></router-outlet>
+ </div>
